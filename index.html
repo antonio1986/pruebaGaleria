@@ -1,0 +1,179 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Multi-page template</title> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head> 
+
+	
+<body> 
+
+<!-- Start of primera page: #one -->
+<div data-role="page" id="primera" data-theme="a">
+
+	<div data-role="header">
+		<h1>Multi-page</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<h2>primera</h2>
+		
+		<p><a href="#principal" data-role="button">Principal</a></p>
+		<p><a href="#bandos" data-role="button">Bandos</a></p>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-theme="a">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page primera -->
+
+
+<!-- Start of principal page: #principal -->
+<div data-role="page" id="principal" data-theme="b">
+
+	<div data-role="header">
+		<h1>principal</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="b">	
+		<h2>Principal</h2>
+
+		<p><a href="#perfil" data-direction="reverse" data-role="button" data-theme="b">Perfil</a></p>
+		<p><a href="#ataques" data-direction="reverse" data-role="button" data-theme="b">Ataques</a></p>
+		<p><a href="#ranking" data-direction="reverse" data-role="button" data-theme="b">Ranking</a></p>
+		<p><a href="#listaAmigos" data-direction="reverse" data-role="button" data-theme="b">ListaAmigos</a></p>
+		<p><a href="#listaAmigos" data-direction="reverse" data-role="button" data-theme="b">Salir</a></p>	
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page principal -->
+
+
+<!-- Start of perfil page: #perfil -->
+<div data-role="page" id="perfil" data-theme="c">
+
+	<div data-role="header">
+		<h1>perfil</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="c">	
+		<h2>Principal</h2>
+
+		<p><a href="#principal" data-direction="reverse" data-role="button" data-theme="b">Principal</a></p>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page perfil -->
+
+
+<!-- Start of ataques page: #ataques -->
+<div data-role="page" id="ataques" data-theme="d">
+
+	<div data-role="header">
+		<h1>Ataques</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="d">	
+		<h2>Ataques</h2>
+
+		<p><a href="#principal" data-direction="reverse" data-role="button" data-theme="b">Principal</a></p>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page ataques -->
+
+
+<!-- Start of ranking page: #ranking -->
+<div data-role="page" id="ranking" data-theme="e">
+
+	<div data-role="header">
+		<h1>ranking</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="e">	
+		<h2>ranking</h2>
+
+		<p><a href="#principal" data-direction="reverse" data-role="button" data-theme="b">Principal</a></p>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page ranking -->
+
+<!-- Start of listaAmigos page: #listaAmigos -->
+<div data-role="page" id="listaAmigos" data-theme="f">
+
+	<div data-role="header">
+		<h1>listaAmigos</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="f">	
+		<h2>listaAmigos</h2>
+
+		<p><a href="#principal" data-direction="reverse" data-role="button" data-theme="b">Principal</a></p>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page listaAmigos -->
+
+<!-- Start of bandos page: #bandos -->
+<div data-role="page" id="bandos" data-theme="g">
+
+	<div data-role="header">
+		<h1>bandos</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="g">	
+		<h2>bandos</h2>
+
+		<p><a href="#avatar" data-direction="reverse" data-role="button" data-theme="b">Avatar</a></p>
+		<p><a href="#principal" data-direction="reverse" data-role="button" data-theme="b">Salir</a></p>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page bandos -->
+
+<!-- Start of avatar page: #avatar -->
+<div data-role="page" id="avatar" data-theme="h">
+
+	<div data-role="header">
+		<h1>avatar</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="h">	
+		<h2>avatar</h2>
+
+		<p><a href="#bandos" data-direction="reverse" data-role="button" data-theme="b">bandos</a></p>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page avatar -->
+
+
+</body>
+</html>
