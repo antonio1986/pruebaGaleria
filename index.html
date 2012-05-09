@@ -1,0 +1,278 @@
+<!DOCTYPE html> 
+<html xmlns:fb="https://www.facebook.com/2008/fbml">
+    <head>
+    	
+    <title>Resistance</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" />
+	
+	 	
+	 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+     <script src="js/libs/jquery-1.7.1.min.js"></script>
+	 <script src="js/facebook.js"></script>
+	 <script src="js/ControladorUsuario.js"></script>
+	 <script src="js/Usuario.js"></script>
+	 <script src="js/GestorOffline.js"></script>
+	
+	 <script src="js/jquery.facebook.multifriend.select.js"></script>
+    </head>
+    <body style="100%">
+        <div id="fb-root"></div>
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({ appId: '369523369752025', 
+                    status: true, 
+                    cookie: true,
+                    xfbml: true,
+                    oauth: true});
+
+               showLoader(true);
+               
+               function updateButton(response) {
+                    button       =   document.getElementById('fb-auth');
+                    userInfo     =   document.getElementById('user-info');
+                    
+                    if (response.authResponse) {
+                        //user is already logged in and connected
+                        FB.api('/me', function(info) {
+                            login(response, info);
+                        });
+                        
+                        button.onclick = function() {
+                            FB.logout(function(response) {
+                                logout(response);
+                            });
+                        };
+                    } else {
+                        //user is not connected to your app or logged out
+                        button.innerHTML = 'Login';
+                        button.onclick = function() {
+                            showLoader(true);
+                            FB.login(function(response) {
+                                if (response.authResponse) {
+                                    FB.api('/me', function(info) {
+                                        login(response, info);
+                                    });	   
+                                } else {
+                                    //user cancelled login or did not grant authorization
+                                    showLoader(false);
+                                }
+                            }, {scope:'email,user_birthday,status_update,publish_stream,user_about_me'});  	
+							
+							window.location = "http://www.google.com/";
+                        }
+                    }
+                }
+                
+                // run once with current status and whenever the status changes
+                FB.getLoginStatus(updateButton);
+                FB.Event.subscribe('auth.statusChange', updateButton);	
+            };
+            (function() {
+                var e = document.createElement('script'); e.async = true;
+                e.src = document.location.protocol 
+                    + '//connect.facebook.net/en_US/all.js';
+                document.getElementById('fb-root').appendChild(e);
+            }());
+        </script>
+
+
+        <button id="fb-auth">Login</button>
+        <div id="loader" style="display:none">
+        	<p>Resistance de falling skies</p>
+            <img src="ajax-loader.gif" alt="loading" />
+        </div>
+        <br />
+        <div id="user-info" style="display:none"></div>
+        <br />
+        <div id="debug"></div>
+        
+        <div id="other" style="display:none">
+          <!--  <a href="#" onclick="showStream(); return false;">Publish Wall Post</a> |
+            <a href="#" onclick="share(); return false;">Share With Your Friends</a> |
+            <a href="#" onclick="graphStreamPublish(); return false;">Publish Stream Using Graph API</a> |
+            <a href="#" onclick="fqlQuery(); return false;">FQL Query Example</a>
+            <a href="#" onclick="shareWithFacebook(); return false;">Compartir con mis amigos</a>
+            <br />
+            <textarea id="status" cols="50" rows="5">Write your status here and click 'Status Set Using Legacy Api Call'</textarea>
+            <br />
+            <a href="#" onclick="setStatus(); return false;">Status Set Using Legacy Api Call</a>-->
+        </div>
+        
+        <!-- Start of primera page: #one -->
+<div data-role="page" id="primera" data-theme="a">
+
+	<div data-role="header">
+		<h1>Multi-page</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<h2>primera</h2>
+		
+		<p><a href="#principal" data-transition="slide" data-role="button">Principal</a></p>
+		<p><a href="#bandos" data-transition="slide" data-role="button">Bandos</a></p>
+	</div><!-- /content -->
+	
+	<!--<div data-role="footer" data-theme="a">
+		<h4>Page Footer</h4>
+	</div> /footer -->
+</div><!-- /page primera -->
+
+
+<!-- Start of principal page: #principal -->
+<div data-role="page" id="principal" data-theme="b">
+
+	<div data-role="header">
+		<h1>principal</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<h2>Principal</h2>
+
+		<p><a href="#perfil" data-transition="slide" data-role="button" data-theme="a">Perfil</a></p>
+		<p><a href="#ataques" data-transition="slide" data-role="button" data-theme="b">Ataques</a></p>
+		<p><a href="#ranking" data-transition="slide" data-role="button" data-theme="c">Ranking</a></p>
+		<p><a href="#listaAmigos" data-transition="slide" data-role="button" data-theme="d">ListaAmigos</a></p>
+		<p><a href="#listaAmigos" data-transition="slide" data-role="button" data-theme="e">Salir</a></p>	
+		
+	</div><!-- /content -->
+	
+	<!--<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div> /footer -->
+</div><!-- /page principal -->
+
+
+<!-- Start of perfil page: #perfil -->
+<div data-role="page" id="perfil" data-theme="c">
+
+	<div data-role="header">
+		<h1>perfil</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<h2>Principal</h2>
+
+		<p><a href="#principal" data-transition="slide" data-role="button" data-theme="b">Principal</a></p>
+
+	</div><!-- /content -->
+	
+	<!--<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div> /footer -->
+</div><!-- /page perfil -->
+
+
+<!-- Start of ataques page: #ataques -->
+<div data-role="page" id="ataques" data-theme="d">
+
+	<div data-role="header">
+		<h1>Ataques</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<h2>Ataques</h2>
+
+		<p><a href="#principal" data-transition="slide" data-role="button" data-theme="b">Principal</a></p>
+
+	</div><!-- /content -->
+	
+	<!-- <div data-role="footer">
+		<h4>Page Footer</h4>
+	</div>/footer -->
+</div><!-- /page ataques -->
+
+
+<!-- Start of ranking page: #ranking -->
+<div data-role="page" id="ranking" data-theme="e">
+
+	<div data-role="header">
+		<h1>ranking</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<h2>ranking</h2>
+
+		<p><a href="#principal" data-transition="slide" data-role="button" data-theme="b">Principal</a></p>
+
+	</div><!-- /content -->
+	
+	<!--<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div> /footer -->
+</div><!-- /page ranking -->
+
+<!-- Start of listaAmigos page: #listaAmigos -->
+<div data-role="page" id="listaAmigos" data-theme="f">
+
+	<div data-role="header">
+		<h1>listaAmigos</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<h2>listaAmigos</h2>
+
+		<p><a href="#principal" data-transition="slide" data-role="button" data-theme="b">Principal</a></p>
+
+	</div><!-- /content -->
+	
+	<!--<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div> /footer -->
+</div><!-- /page listaAmigos -->
+   
+   
+
+<!-- Start of bandos page: #bandos -->
+<div data-role="page" id="bandos" data-theme="g">
+
+	<div data-role="header">
+		<h1>bandos</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<h2>bandos</h2>
+
+		<p><a href="#avatar" data-transition="slide" data-role="button" data-theme="b">Avatar</a></p>
+		<p><a href="#principal" data-transition="slide" data-role="button" data-theme="b">Salir</a></p>
+
+	</div><!-- /content -->
+	
+	<!-- <div data-role="footer">
+		<h4>Page Footer</h4>
+	</div>/footer -->
+</div><!-- /page bandos -->
+
+<!-- Start of avatar page: #avatar -->
+<div data-role="page" id="avatar" data-theme="b">
+
+	<div data-role="header">
+		<h1>avatar</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	<div  data-role="navbar">
+		<ul>
+			<li><img src="imagenes/avatares/alien0.jpg"/></li>
+			<li><img src="imagenes/avatares/alien0.jpg"/></li>
+			<li><img src="imagenes/avatares/alien0.jpg"/></li>
+			<li><img src="imagenes/avatares/alien0.jpg"/></li>
+			<li><img src="imagenes/avatares/alien0.jpg"/></li>
+			<li><img src="imagenes/avatares/alien0.jpg"/></li>
+		</ul>
+	</div>
+	</div><!-- /content -->
+	
+	<!--<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div> /footer -->
+</div><!-- /page avatar -->
+   
+   
+   
+   
+   
+    </body>
+</html>

@@ -1,0 +1,31 @@
+var ControladorUsuario={
+   
+}
+
+ControladorUsuario.inicio=function(id){
+      if(ControladorUsuario.esUser(id)){
+      	console.log("usuario existe ya");
+      	//me voy a la página de perfil
+      	 ControladorUsuario.PintarUsuario(GestorOffline.obtenerUsuario());
+      }else{
+      	console.log("usuario no registrado");
+      	//me voy a la página de seleccionde  bando
+      }
+     
+}
+
+
+ControladorUsuario.PintarUsuario=function(usuario){
+
+
+}
+
+ControladorUsuario.recuperarSeleccion=function(i){
+	var Lista=GestorOffline.obtenerLista('partidos');
+	return Lista[i];
+}
+
+ControladorUsuario.esUser=function(id){
+	
+	return false;
+}
